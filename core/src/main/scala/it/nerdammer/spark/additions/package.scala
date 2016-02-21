@@ -1,5 +1,6 @@
 package it.nerdammer.spark
 
+import it.nerdammer.spark.additions.tryfunctions.{TrySparkContextFunctions, TryRDDFunctions}
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
 import scala.language.implicitConversions

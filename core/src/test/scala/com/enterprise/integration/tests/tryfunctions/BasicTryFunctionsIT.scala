@@ -1,16 +1,15 @@
-package com.enterprise.integration.tests
-
-import it.nerdammer.spark.additions.test.utils.SparkBaseTest
-import org.scalatest.Matchers
+package com.enterprise.integration.tests.tryfunctions
 
 import it.nerdammer.spark.additions._
+import it.nerdammer.spark.additions.test.utils.SparkBaseTest
+import org.scalatest.Matchers
 
 /**
   * Basic tests of the library.
   *
   * @author Nicola Ferraro
   */
-class BasicIT extends SparkBaseTest with Matchers {
+class BasicTryFunctionsIT extends SparkBaseTest with Matchers {
 
   "try functions" should "be available for anyone" in {
 

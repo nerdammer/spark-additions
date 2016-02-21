@@ -1,10 +1,9 @@
-package it.nerdammer.spark.additions
+package it.nerdammer.spark.additions.tryfunctions
 
 import org.apache.spark.{Accumulable, SparkContext}
 
-import scala.collection.concurrent.TrieMap
-
 import scala.collection._
+import scala.collection.concurrent.TrieMap
 
 /**
   * Holds accumulator variables that need to be retrieved later, after the execution of some actions.

@@ -1,4 +1,4 @@
-package it.nerdammer.spark.additions
+package it.nerdammer.spark.additions.tryfunctions
 
 import org.apache.spark.SparkContext
 

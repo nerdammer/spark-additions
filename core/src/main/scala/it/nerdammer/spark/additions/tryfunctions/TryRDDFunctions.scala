@@ -1,4 +1,4 @@
-package it.nerdammer.spark.additions
+package it.nerdammer.spark.additions.tryfunctions
 
 import org.apache.spark.rdd.RDD
 
@@ -13,18 +13,18 @@ import scala.util.{Failure, Success, Try}
   */
 private [nerdammer] class TryRDDFunctions[T](rdd: RDD[T]) extends AnyRef with Serializable {
 
+  @transient implicit private val sc = rdd.sparkContext
+
   /**
     * Retrieves or creates the accumulator object used by this RDD.
     */
   def retrieveAccumulator(accumulatorName: String) = {
 
-    implicit val sc = rdd.sparkContext
-
     TryRDDAccumulatorHolder.accumulators.synchronized {
 
       // Initialize the accumulator if needed
       if(TryRDDAccumulatorHolder.getExceptionAccumulator(accumulatorName).isEmpty) {
-        val exceptionAccumulator = rdd.sparkContext.accumulableCollection(mutable.HashSet[(Any, Throwable)]())
+        val exceptionAccumulator = sc.accumulableCollection(mutable.HashSet[(Any, Throwable)]())
         TryRDDAccumulatorHolder.putExceptionAccumulator(exceptionAccumulator, accumulatorName)
       }
     }
